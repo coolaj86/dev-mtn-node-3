@@ -17,6 +17,7 @@
   },
   "homepage": "https://github.com/coolaj86/dev-mtn-node-3#readme",
   "dependencies": {
+    "body-parser": "^1.13.1",
     "express": "^4.13.0",
     "localhost.daplie.com-certificates": "^1.0.0",
     "twilio": "^2.2.1"
