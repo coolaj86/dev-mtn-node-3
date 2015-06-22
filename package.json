@@ -1,0 +1,22 @@
+{
+  "name": "dev-mtn-node-3",
+  "version": "1.0.0",
+  "description": "git clone git@github.com:coolaj86/dev-mtn-node-3.git",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/coolaj86/dev-mtn-node-3.git"
+  },
+  "author": "AJ ONeal <coolaj86@gmail.com> (http://coolaj86.com/)",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/coolaj86/dev-mtn-node-3/issues"
+  },
+  "homepage": "https://github.com/coolaj86/dev-mtn-node-3#readme",
+  "dependencies": {
+    "express": "^4.13.0"
+  }
+}
