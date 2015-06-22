@@ -3,6 +3,7 @@
 * https://www.twilio.com/docs/node/install
 
 
+```
 git clone git@github.com:coolaj86/dev-mtn-node-3.git
 
 npm init
@@ -15,3 +16,4 @@ npm install --save twilio@latest
 # Copy the example file and season to taste
 rsync -av ./config.sample.js ./config.js
 vim ./config.js
+```
