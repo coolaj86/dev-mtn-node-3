@@ -1,6 +1,6 @@
 'use strict';
 
-function sendSms(toNumber, cb) {
+function sendSms(toNumber) {
   var twilio = require('twilio');
 
   // Your accountSid and authToken from twilio.com/user/account
@@ -9,11 +9,12 @@ function sendSms(toNumber, cb) {
   var authToken = config.twilio.authToken;
   var client = twilio(accountSid, authToken);
 
-  client.messages.create({
-      body: "AJ please?! I love you <3",
-      to: toNumber,
-      from: "+14155992671"
-  }, cb);
+  return client.messages.create({
+    body: "Please?! I love you <3"
+    // whichever number the 6-digit verification code was sent to
+  , to: toNumber
+  , from: config.twilio.fromNumber
+  });
 }
 
 module.exports = function create() {
@@ -34,16 +35,16 @@ module.exports = function create() {
   });
 
   app.post('/twilio/:number', function (req, res) {
-    sendSms(req.params.number, function (err/*, message*/) {
+    sendSms(req.params.number).then(function(message) {
+      process.stdout.write(message.sid);
+
+      res.send({ success: true });
+    }, function (err) {
       console.error(err);
 
-      if (err) {
-        res.send({
-          error: { message: 'developer error, see server console' }
-        });
-        return;
-      }
-      res.send({ success: true });
+      res.send({
+        error: { message: 'developer error, see server console' }
+      });
     });
   });
 
