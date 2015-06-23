@@ -6,16 +6,15 @@ var twilio = require('twilio');
 var config = require('./config');
 var accountSid = config.twilio.accountSid;
 var authToken = config.twilio.authToken;
-var client = require('twilio')(accountSid, authToken);
+var client = twilio(accountSid, authToken);
 
 client.messages.create({
-    body: "AJ please?! I love you <3",
-    to: "+13174266525",
-    from: "+14155992671"
-}, function(err, message) {
-    if (err) {
-      console.error(err);
-      return;
-    }
-    process.stdout.write(message.sid);
+  body: "Jenny please?! I love you <3"
+  // whichever number the 6-digit verification code was sent to
+, to: "YOUR VERIFIED NUMBER HERE"
+, from: config.twilio.fromNumber
+}).then(function(message) {
+  process.stdout.write(message.sid);
+}, function (err) {
+  console.error(err);
 });
